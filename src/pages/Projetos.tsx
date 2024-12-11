@@ -286,7 +286,8 @@ export function Projetos() {
         <div className="flex items-center justify-between mb-8 relative">
           <button
             onClick={handlePreviousCategories}
-            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200 absolute left-0"
+            className="absolute left-0 px-4 py-2 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            style={{ transform: 'translateX(-50%)' }}
           >
             ←
           </button>
@@ -296,10 +297,10 @@ export function Projetos() {
               <button
                 key={category}
                 onClick={() => handleFilterChange(category)}
-                className={`px-4 py-2 rounded-md transition-colors ${
+                className={`px-4 py-2 rounded-md opacity-80 transition-opacity ${
                   filter === category
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    ? 'bg-gray-900 text-white opacity-100'
+                    : 'bg-gray-100 text-gray-800 hover:opacity-100'
                 }`}
               >
                 {category}
@@ -309,7 +310,8 @@ export function Projetos() {
 
           <button
             onClick={handleNextCategories}
-            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200 absolute right-0"
+            className="absolute right-0 px-4 py-2 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            style={{ transform: 'translateX(50%)' }}
           >
             →
           </button>
