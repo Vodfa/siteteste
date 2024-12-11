@@ -175,7 +175,7 @@ export function Projetos() {
   return (
     <div className="min-h-screen pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-serif mb-8">Nossos Projetos</h1>
+        <h1 className="text-4xl font-serif mb-8 text-center">Nossos Projetos</h1>
 
         {/* Barra de Pesquisa */}
         <div className="mb-6">
@@ -189,7 +189,7 @@ export function Projetos() {
         </div>
 
         {/* Filtros */}
-        <div className="flex items-center space-x-4 mb-8 relative">
+        <div className="flex items-center space-x-4 mb-8 justify-center relative">
           {mainCategories.map((category) => (
             <button
               key={category}
