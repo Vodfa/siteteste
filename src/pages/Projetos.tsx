@@ -222,11 +222,13 @@ const projects = [
 
 export function Projetos() {
   const [filter, setFilter] = React.useState<string>('Todos');
-  const [isMoreCategoriesActive, setMoreCategoriesActive] = React.useState<boolean>(false);
   const [searchQuery, setSearchQuery] = React.useState<string>('');
+  const [visibleCategories, setVisibleCategories] = React.useState<number>(0);
 
-  const mainCategories: string[] = ['Todos', 'Residencial', 'Comercial'];
-  const additionalCategories: string[] = [
+  const categories: string[] = [
+    'Todos',
+    'Residencial',
+    'Comercial',
     'Educacional',
     'Hospitalar',
     'Misto',
@@ -235,19 +237,22 @@ export function Projetos() {
     'Urbanismo',
   ];
 
+  const itemsPerPage = 6;
+
+  const handleNextCategories = (): void => {
+    setVisibleCategories((prev) =>
+      prev + itemsPerPage >= categories.length ? 0 : prev + itemsPerPage
+    );
+  };
+
+  const handlePreviousCategories = (): void => {
+    setVisibleCategories((prev) =>
+      prev - itemsPerPage < 0 ? categories.length - itemsPerPage : prev - itemsPerPage
+    );
+  };
+
   const handleFilterChange = (category: string): void => {
     setFilter(category);
-    setMoreCategoriesActive(false);
-  };
-
-  const handleMoreCategoriesClick = (): void => {
-    setMoreCategoriesActive(!isMoreCategoriesActive);
-  };
-
-  const handleCloseModal = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-    if ((e.target as HTMLDivElement).id === 'modal-backdrop') {
-      setMoreCategoriesActive(false);
-    }
   };
 
   const filteredProjects = projects.filter((project) => {
@@ -255,6 +260,11 @@ export function Projetos() {
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const displayedCategories = categories.slice(
+    visibleCategories,
+    visibleCategories + itemsPerPage
+  );
 
   return (
     <div className="min-h-screen pt-16">
@@ -272,67 +282,40 @@ export function Projetos() {
           />
         </div>
 
-        {/* Filtros */}
-        <div className="flex items-center space-x-4 mb-8 relative">
-          {mainCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleFilterChange(category)}
-              className={px-4 py-2 rounded-md transition-colors ${
-                filter === category
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-              }}
-            >
-              {category}
-            </button>
-          ))}
+        {/* Navegação de Categorias */}
+        <div className="flex items-center justify-between mb-8 relative">
+          <button
+            onClick={handlePreviousCategories}
+            className="absolute left-0 px-3 py-3 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            style={{ transform: 'translateX(-50%)' }}
+          >
+            ←
+          </button>
+
+          <div className="flex space-x-2 mx-auto">
+            {displayedCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleFilterChange(category)}
+                className={`px-3 py-2 rounded-md opacity-80 transition-opacity text-sm whitespace-nowrap ${
+  filter === category
+    ? 'bg-gray-900 text-white opacity-100'
+    : 'bg-gray-100 text-gray-800 hover:opacity-100'
+}`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
 
           <button
-            onClick={handleMoreCategoriesClick}
-            className={px-4 py-2 rounded-md transition-colors ${
-              isMoreCategoriesActive
-                ? 'bg-gray-400 text-gray-100'
-                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-            }}
+            onClick={handleNextCategories}
+            className="absolute right-0 px-3 py-3 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            style={{ transform: 'translateX(50%)' }}
           >
-            Mais Categorias
+            →
           </button>
         </div>
-
-        {/* Modal de Categorias Adicionais */}
-        {isMoreCategoriesActive && (
-          <div
-            id="modal-backdrop"
-            onClick={handleCloseModal}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          >
-            <div className="bg-white p-8 rounded-md shadow-lg w-3/4 max-w-md">
-              <h2 className="text-2xl font-serif mb-4">Mais Categorias</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {additionalCategories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => handleFilterChange(category)}
-                    className={px-4 py-2 rounded-md transition-colors ${
-                      filter === category
-                        ? 'bg-gray-900 text-white'
-                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                    }}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={() => setMoreCategoriesActive(false)}
-                className="mt-6 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* Grid de Projetos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
