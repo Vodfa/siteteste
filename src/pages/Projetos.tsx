@@ -211,6 +211,13 @@ const projects = [
     image: 'https://i.imgur.com/gPfTq7O.jpeg',
     category: 'Residenciais',
   },
+  {
+    id: 31,
+    title: 'Rogério Maciel',
+    description: 'Preparação para um futuro de sucesso',
+    image: 'https://i.imgur.com/3q0wEnc.jpeg',
+    category: 'Residenciais',
+  },
 ];
 
 export function Projetos() {
