@@ -25,7 +25,7 @@ const projects = [
   {
     id: 4,
     title: 'Drogaria Venancio',
-    description: 'Drogaria localizada ',
+    description: 'Drogaria localizada',
     image: 'https://i.imgur.com/EtT3dWl.png',
     category: 'Comerciais',
   },
@@ -153,7 +153,7 @@ export function Projetos() {
 
   const handleFilterChange = (category: string): void => {
     setFilter(category);
-    setMoreCategoriesActive(false); // Fecha o menu ao selecionar uma categoria
+    setMoreCategoriesActive(false);
   };
 
   const handleMoreCategoriesClick = (): void => {
@@ -175,9 +175,8 @@ export function Projetos() {
   return (
     <div className="min-h-screen pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-serif mb-8 text-center">Nossos Projetos</h1>
+        <h1 className="text-4xl font-serif mb-8">Nossos Projetos</h1>
 
-        {/* Barra de Pesquisa */}
         <div className="mb-6">
           <input
             type="text"
@@ -188,8 +187,7 @@ export function Projetos() {
           />
         </div>
 
-        {/* Filtros */}
-        <div className="flex items-center space-x-4 mb-8 justify-center relative">
+        <div className="flex items-center space-x-4 mb-8 relative">
           {mainCategories.map((category) => (
             <button
               key={category}
@@ -203,7 +201,6 @@ export function Projetos() {
               {category}
             </button>
           ))}
-
           <button
             onClick={handleMoreCategoriesClick}
             className={`px-4 py-2 rounded-md transition-colors ${
@@ -216,7 +213,6 @@ export function Projetos() {
           </button>
         </div>
 
-        {/* Modal de Categorias Adicionais */}
         {isMoreCategoriesActive && (
           <div
             id="modal-backdrop"
@@ -250,7 +246,6 @@ export function Projetos() {
           </div>
         )}
 
-        {/* Grid de Projetos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
