@@ -237,7 +237,7 @@ export function Projetos() {
     'Urbanismo',
   ];
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
 
   const handleNextCategories = (): void => {
     setVisibleCategories((prev) =>
@@ -286,22 +286,22 @@ export function Projetos() {
         <div className="flex items-center justify-between mb-8 relative">
           <button
             onClick={handlePreviousCategories}
-            className="absolute left-0 px-4 py-2 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            className="absolute left-0 px-3 py-3 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
             style={{ transform: 'translateX(-50%)' }}
           >
             ←
           </button>
 
-          <div className="flex space-x-4 mx-auto">
+          <div className="flex space-x-2 mx-auto">
             {displayedCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleFilterChange(category)}
-                className={`px-4 py-2 rounded-md opacity-80 transition-opacity ${
-                  filter === category
-                    ? 'bg-gray-900 text-white opacity-100'
-                    : 'bg-gray-100 text-gray-800 hover:opacity-100'
-                }`}
+                className={`px-3 py-2 rounded-md opacity-80 transition-opacity text-sm whitespace-nowrap ${
+  filter === category
+    ? 'bg-gray-900 text-white opacity-100'
+    : 'bg-gray-100 text-gray-800 hover:opacity-100'
+}`}
               >
                 {category}
               </button>
@@ -310,7 +310,7 @@ export function Projetos() {
 
           <button
             onClick={handleNextCategories}
-            className="absolute right-0 px-4 py-2 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
+            className="absolute right-0 px-3 py-3 rounded-full bg-gray-800 text-white opacity-80 hover:opacity-100 focus:outline-none"
             style={{ transform: 'translateX(50%)' }}
           >
             →
