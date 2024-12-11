@@ -223,7 +223,7 @@ const projects = [
 export function Projetos() {
   const [filter, setFilter] = React.useState<string>('Todos');
   const [searchQuery, setSearchQuery] = React.useState<string>('');
-  const [currentCategoryIndex, setCurrentCategoryIndex] = React.useState<number>(0);
+  const [visibleCategories, setVisibleCategories] = React.useState<number>(0);
 
   const categories: string[] = [
     'Todos',
@@ -237,20 +237,22 @@ export function Projetos() {
     'Urbanismo',
   ];
 
+  const itemsPerPage = 4;
+
+  const handleNextCategories = (): void => {
+    setVisibleCategories((prev) =>
+      prev + itemsPerPage >= categories.length ? 0 : prev + itemsPerPage
+    );
+  };
+
+  const handlePreviousCategories = (): void => {
+    setVisibleCategories((prev) =>
+      prev - itemsPerPage < 0 ? categories.length - itemsPerPage : prev - itemsPerPage
+    );
+  };
+
   const handleFilterChange = (category: string): void => {
     setFilter(category);
-  };
-
-  const handleNextCategory = (): void => {
-    setCurrentCategoryIndex((prevIndex) => (prevIndex + 1) % categories.length);
-    setFilter(categories[(currentCategoryIndex + 1) % categories.length]);
-  };
-
-  const handlePreviousCategory = (): void => {
-    setCurrentCategoryIndex((prevIndex) =>
-      prevIndex === 0 ? categories.length - 1 : prevIndex - 1
-    );
-    setFilter(categories[currentCategoryIndex === 0 ? categories.length - 1 : currentCategoryIndex - 1]);
   };
 
   const filteredProjects = projects.filter((project) => {
@@ -258,6 +260,11 @@ export function Projetos() {
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const displayedCategories = categories.slice(
+    visibleCategories,
+    visibleCategories + itemsPerPage
+  );
 
   return (
     <div className="min-h-screen pt-16">
@@ -275,20 +282,34 @@ export function Projetos() {
           />
         </div>
 
-        {/* Filtros com Setas */}
-        <div className="flex items-center justify-center mb-8 relative">
+        {/* Navegação de Categorias */}
+        <div className="flex items-center justify-between mb-8 relative">
           <button
-            onClick={handlePreviousCategory}
-            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200"
+            onClick={handlePreviousCategories}
+            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200 absolute left-0"
           >
             ←
           </button>
 
-          <span className="mx-4 text-lg font-semibold text-gray-800">{filter}</span>
+          <div className="flex space-x-4 mx-auto">
+            {displayedCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleFilterChange(category)}
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  filter === category
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
 
           <button
-            onClick={handleNextCategory}
-            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200"
+            onClick={handleNextCategories}
+            className="px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200 absolute right-0"
           >
             →
           </button>
