@@ -25,7 +25,7 @@ const projects = [
   {
     id: 4,
     title: 'Drogaria Venancio',
-    description: 'Drogaria localizada',
+    description: 'Drogaria localizada ',
     image: 'https://i.imgur.com/EtT3dWl.png',
     category: 'Comerciais',
   },
@@ -177,6 +177,7 @@ export function Projetos() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-serif mb-8">Nossos Projetos</h1>
 
+        {/* Barra de Pesquisa */}
         <div className="mb-6">
           <input
             type="text"
@@ -187,6 +188,7 @@ export function Projetos() {
           />
         </div>
 
+        {/* Filtros */}
         <div className="flex items-center space-x-4 mb-8 relative">
           {mainCategories.map((category) => (
             <button
@@ -201,6 +203,7 @@ export function Projetos() {
               {category}
             </button>
           ))}
+
           <button
             onClick={handleMoreCategoriesClick}
             className={`px-4 py-2 rounded-md transition-colors ${
@@ -213,6 +216,7 @@ export function Projetos() {
           </button>
         </div>
 
+        {/* Modal de Categorias Adicionais */}
         {isMoreCategoriesActive && (
           <div
             id="modal-backdrop"
@@ -246,6 +250,7 @@ export function Projetos() {
           </div>
         )}
 
+        {/* Grid de Projetos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
@@ -255,11 +260,11 @@ export function Projetos() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-64 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
-                <h3 className="text-white text-base md:text-lg font-semibold">{project.title}</h3>
-                <p className="text-gray-200 text-sm md:text-base mt-1">{project.description}</p>
+                <h3 className="text-white text-lg font-semibold">{project.title}</h3>
+                <p className="text-gray-200 text-sm mt-1">{project.description}</p>
                 <span className="text-gray-400 text-sm mt-1">{project.category}</span>
               </div>
             </div>
