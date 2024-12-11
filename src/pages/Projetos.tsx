@@ -224,7 +224,6 @@ export function Projetos() {
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           >
             <div className="bg-white p-8 rounded-md shadow-lg w-3/4 max-w-md">
-              ">
               <h2 className="text-2xl font-serif mb-4">Mais Categorias</h2>
               <div className="grid grid-cols-2 gap-4">
                 {additionalCategories.map((category) => (
@@ -275,5 +274,3 @@ export function Projetos() {
     </div>
   );
 }
-
-              
