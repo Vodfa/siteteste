@@ -260,11 +260,11 @@ export function Projetos() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
-                <h3 className="text-white text-lg font-semibold">{project.title}</h3>
-                <p className="text-gray-200 text-sm mt-1">{project.description}</p>
+                <h3 className="text-white text-base md:text-lg font-semibold">{project.title}</h3>
+                <p className="text-gray-200 text-sm md:text-base mt-1">{project.description}</p>
                 <span className="text-gray-400 text-sm mt-1">{project.category}</span>
               </div>
             </div>
