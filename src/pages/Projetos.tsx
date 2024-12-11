@@ -224,6 +224,7 @@ export function Projetos() {
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           >
             <div className="bg-white p-8 rounded-md shadow-lg w-3/4 max-w-md">
+              ">
               <h2 className="text-2xl font-serif mb-4">Mais Categorias</h2>
               <div className="grid grid-cols-2 gap-4">
                 {additionalCategories.map((category) => (
@@ -251,25 +252,21 @@ export function Projetos() {
         )}
 
         {/* Grid de Projetos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative overflow-hidden rounded-lg shadow-lg"
+              className="group relative overflow-hidden rounded-lg shadow-md bg-white"
             >
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                <h3 className="text-white text-xl font-serif mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-50 text-sm">{project.description}</p>
-                <span className="text-gray-300 text-sm mt-2">
-                  {project.category}
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
+                <h3 className="text-white text-lg font-semibold">{project.title}</h3>
+                <p className="text-gray-200 text-sm mt-1">{project.description}</p>
+                <span className="text-gray-400 text-sm mt-1">{project.category}</span>
               </div>
             </div>
           ))}
@@ -278,3 +275,5 @@ export function Projetos() {
     </div>
   );
 }
+
+              
