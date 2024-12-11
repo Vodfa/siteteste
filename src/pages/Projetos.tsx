@@ -141,12 +141,12 @@ const projects = [
     image: 'https://i.imgur.com/6n66VXo.jpeg',
     category: 'Comerciais',
   },
-   {
+  {
     id: 21,
     title: 'Delta',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/sCEZeE2.jpeg'
-    category: 'Residenciais',
+    image: 'https://i.imgur.com/sCEZeE2.jpeg',
+    category: 'Comerciais',
   },
   {
     id: 22,
