@@ -25,7 +25,7 @@ const projects = [
   {
     id: 4,
     title: 'Drogaria Venancio',
-    description: 'Drogaria localizada ',
+    description: 'Drogaria localizada',
     image: 'https://i.imgur.com/EtT3dWl.png',
     category: 'Comerciais',
   },
@@ -134,7 +134,7 @@ const projects = [
     image: 'https://i.imgur.com/QUOPoNb.jpeg',
     category: 'Hoteleiros',
   },
-   {
+  {
     id: 20,
     title: 'Shopping Galeria',
     description: 'Preparação para um futuro de sucesso',
@@ -152,63 +152,63 @@ const projects = [
     id: 22,
     title: 'Dom Bosco',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/F8SFO6K.jpeg'
+    image: 'https://i.imgur.com/F8SFO6K.jpeg',
     category: 'Residenciais',
   },
   {
     id: 23,
     title: 'The Point Offices',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/AJgqdsc.jpeg'
+    image: 'https://i.imgur.com/AJgqdsc.jpeg',
     category: 'Comerciais',
   },
   {
     id: 24,
     title: 'Salve Simpatia',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/JOThZTs.jpeg'
+    image: 'https://i.imgur.com/JOThZTs.jpeg',
     category: 'Comerciais',
   },
   {
     id: 25,
     title: 'Fabio Marcondes',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/O0JQ8VJ.jpeg'
+    image: 'https://i.imgur.com/O0JQ8VJ.jpeg',
     category: 'Comerciais',
   },
   {
     id: 26,
     title: 'João Fortes',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/b08An8n.jpeg'
+    image: 'https://i.imgur.com/b08An8n.jpeg',
     category: 'Comerciais',
   },
   {
     id: 27,
     title: 'Costazul',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/FRfXuj5.jpeg'
+    image: 'https://i.imgur.com/FRfXuj5.jpeg',
     category: 'Comerciais',
   },
   {
     id: 28,
     title: 'Gavião Peixoto, 360',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/t32mr4g.jpeg'
+    image: 'https://i.imgur.com/t32mr4g.jpeg',
     category: 'Comerciais',
   },
   {
     id: 29,
     title: 'La Mole',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/gLZnlTQ.jpeg'
+    image: 'https://i.imgur.com/gLZnlTQ.jpeg',
     category: 'Residenciais',
   },
   {
     id: 30,
     title: 'Presid. Backer',
     description: 'Preparação para um futuro de sucesso',
-    image: 'https://i.imgur.com/gPfTq7O.jpeg'
+    image: 'https://i.imgur.com/gPfTq7O.jpeg',
     category: 'Residenciais',
   },
 ];
