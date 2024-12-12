@@ -16,7 +16,7 @@ export function Navbar() {
             <img
               src="https://i.imgur.com/RA4cmKa.png" // Substitua por um link válido para sua imagem no desktop
               alt="Logo Desktop"
-              className="hidden md:block h-32 w-32"
+              className="hidden md:block h-16 w-16"
             />
             <img
               src="https://i.imgur.com/3zs4AW4.png" // Substitua por um link válido para sua imagem no mobile
