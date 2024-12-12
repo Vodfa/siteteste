@@ -12,13 +12,17 @@ export function Navbar() {
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <Link to="/" className="flex items-center space-x-2 text-2xl font-serif">
+          <Link to="/" className="flex items-center">
             <img
-              src="https://i.imgur.com/3zs4AW4.png" // Substitua pelo link da sua imagem
-              alt="Logo"
-              className="h-12 w-13"
+              src="https://i.imgur.com/RA4cmKa.png" // Substitua por um link válido para sua imagem no desktop
+              alt="Logo Desktop"
+              className="hidden md:block h-12 w-13"
             />
-            <span>MassenaMonnerat</span>
+            <img
+              src="https://i.imgur.com/3zs4AW4.png" // Substitua por um link válido para sua imagem no mobile
+              alt="Logo Mobile"
+              className="block md:hidden h-12 w-13"
+            />
           </Link>
 
           {/* Desktop Menu */}
