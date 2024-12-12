@@ -20,7 +20,7 @@ export function Navbar() {
               className="hidden md:block h-auto max-h-16 w-auto"
             />
             <img
-              src="https://i.imgur.com/3zs4AW4.png"
+              src="https://i.imgur.com/RA4cmKa.png"
               alt="Logo Mobile"
               className="block md:hidden h-12 w-13"
             />
