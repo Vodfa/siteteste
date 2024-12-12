@@ -259,7 +259,7 @@ export function Projetos() {
   return (
     <div className="min-h-screen pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-serif mb-8">Nossos Projetos</h1>
+        <h1 className="text-4xl font-serif mb-8 text-center sm:text-left">Nossos Projetos</h1>
 
         {/* Barra de Pesquisa */}
         <div className="mb-6">
@@ -273,12 +273,12 @@ export function Projetos() {
         </div>
 
         {/* Filtros */}
-        <div className="flex items-center space-x-4 mb-8 relative">
+        <div className="flex flex-wrap items-center gap-4 mb-8 relative justify-center sm:justify-start">
           {mainCategories.map((category) => (
             <button
               key={category}
               onClick={() => handleFilterChange(category)}
-              className={`px-4 py-2 rounded-md transition-colors ${
+              className={`px-4 py-2 rounded-md transition-colors text-sm sm:text-base ${
                 filter === category
                   ? 'bg-gray-900 text-white'
                   : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -290,7 +290,7 @@ export function Projetos() {
 
           <button
             onClick={handleMoreCategoriesClick}
-            className={`px-4 py-2 rounded-md transition-colors ${
+            className={`px-4 py-2 rounded-md transition-colors text-sm sm:text-base ${
               isMoreCategoriesActive
                 ? 'bg-gray-400 text-gray-100'
                 : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -307,7 +307,7 @@ export function Projetos() {
             onClick={handleCloseModal}
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           >
-            <div className="bg-white p-8 rounded-md shadow-lg w-3/4 max-w-md">
+            <div className="bg-white p-8 rounded-md shadow-lg w-11/12 max-w-md">
               <h2 className="text-2xl font-serif mb-4">Mais Categorias</h2>
               <div className="grid grid-cols-2 gap-4">
                 {additionalCategories.map((category) => (
@@ -326,7 +326,7 @@ export function Projetos() {
               </div>
               <button
                 onClick={() => setMoreCategoriesActive(false)}
-                className="mt-6 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700"
+                className="mt-6 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 w-full"
               >
                 Fechar
               </button>
@@ -344,12 +344,12 @@ export function Projetos() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-64 object-cover"
+                className="w-full h-48 sm:h-64 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
-                <h3 className="text-white text-lg font-semibold">{project.title}</h3>
-                <p className="text-gray-200 text-sm mt-1">{project.description}</p>
-                <span className="text-gray-400 text-sm mt-1">{project.category}</span>
+                <h3 className="text-white text-sm sm:text-lg font-semibold">{project.title}</h3>
+                <p className="text-gray-200 text-xs sm:text-sm mt-1">{project.description}</p>
+                <span className="text-gray-400 text-xs sm:text-sm mt-1">{project.category}</span>
               </div>
             </div>
           ))}
@@ -358,3 +358,4 @@ export function Projetos() {
     </div>
   );
 }
+
