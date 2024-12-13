@@ -75,7 +75,7 @@ export function Home() {
               categoria: 'Interiores',
             }].map((service, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
-                <Link to={`/projetos?categoria=${encodeURIComponent(service.categoria)}`}>
+                <Link to={`/projetos}`}>
                   <img
                     src={service.image}
                     alt={service.title}
