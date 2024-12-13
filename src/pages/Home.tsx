@@ -62,17 +62,17 @@ export function Home() {
               title: 'Projetos Residenciais',
               description: 'Criamos casas que combinam conforto e sofisticação.',
               image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',
-              link: '/projetos?categoria=Residencial',
+              link: '/projetos?category=Residencial',
             }, {
               title: 'Projetos Comerciais',
               description: 'Espaços comerciais que impulsionam seu negócio.',
               image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
-              link: '/projetos?categoria=Comercial',
+              link: '/projetos?category=Comercial',
             }, {
               title: 'Interiores',
               description: 'Design de interiores que reflete sua personalidade.',
               image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6',
-              link: '/projetos?categoria=Interiores',
+              link: '/projetos?categoriy=Interiores',
             }].map((service, index) => (
               <Link to={service.link} key={index} className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
                 <img
