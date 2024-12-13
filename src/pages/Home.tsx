@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Home() {
   return (
@@ -60,20 +61,20 @@ export function Home() {
             {[{
               title: 'Projetos Residenciais',
               description: 'Criamos casas que combinam conforto e sofisticação.',
-              image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9'
+              image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',
+              link: '/projetos?categoria=Residencial',
             }, {
               title: 'Projetos Comerciais',
               description: 'Espaços comerciais que impulsionam seu negócio.',
-              image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2'
+              image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
+              link: '/projetos?categoria=Comercial',
             }, {
               title: 'Interiores',
               description: 'Design de interiores que reflete sua personalidade.',
-              image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6'
+              image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6',
+              link: '/projetos?categoria=Interiores',
             }].map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col"
-              >
+              <Link to={service.link} key={index} className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -87,7 +88,7 @@ export function Home() {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
