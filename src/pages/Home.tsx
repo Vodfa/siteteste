@@ -62,28 +62,26 @@ export function Home() {
               title: 'Projetos Residenciais',
               description: 'Criamos casas que combinam conforto e sofisticação.',
               image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',
-              category: 'Residencial',
+              categoria: 'Residencial',
             }, {
               title: 'Projetos Comerciais',
               description: 'Espaços comerciais que impulsionam seu negócio.',
               image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
-              category: 'Comercial',
+              categoria: 'Comercial',
             }, {
               title: 'Interiores',
               description: 'Design de interiores que reflete sua personalidade.',
               image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6',
-              category: 'Interiores',
+              categoria: 'Interiores',
             }].map((service, index) => (
-              <Link 
-                to={`/projetos?category=${encodeURIComponent(service.category)}`} 
-                key={index} 
-                className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col"
-              >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-48 object-cover"
-                />
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
+                <Link to={`/projetos?categoria=${encodeURIComponent(service.categoria)}`}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-48 object-cover cursor-pointer"
+                  />
+                </Link>
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-lg md:text-xl font-serif mb-2">
                     {service.title}
@@ -92,7 +90,7 @@ export function Home() {
                     {service.description}
                   </p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
